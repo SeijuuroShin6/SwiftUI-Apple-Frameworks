@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ZStack(alignment: .leading) {
+        ZStack(alignment: .center) {
             Color(.black)
                 .ignoresSafeArea()
             //           VStack() {
@@ -18,12 +18,24 @@ struct MainView: View {
             //        .font(.system(size: 30, weight: .bold, design: .default))
             //  }
             
-            VStack(spacing: 20) {
-                gridContentView(appImage: "app-clip", nameApp: "App Clips")
-                gridContentView(appImage: "arkit", nameApp: "ARKit")
-                gridContentView(appImage: "carplay", nameApp: "Car Play")
-
+            // HStack(spacing: 20) {
+            //   gridContentView(appImage: "app-clip", nameApp: "App Clips")
+            // gridContentView(appImage: "arkit", nameApp: "ARKit")
+            // gridContentView(appImage: "carplay", nameApp: "Car Play")
+            
+            
+            
+            
+            Grid {
+                GridRow {
+                    gridContentView(appImage: "app-clip", nameApp: "App Clips")
+                    gridContentView(appImage: "app-clip", nameApp: "App Clips")
+                    gridContentView(appImage: "app-clip", nameApp: "App Clips")
+                }
             }
+            .padding()
+            
+           }
         }
     }
     
@@ -49,7 +61,7 @@ struct MainView: View {
             }
         }
     }
-}
+
 
 
 #Preview {
