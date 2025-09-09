@@ -14,10 +14,16 @@ struct MainView: View {
                                GridItem(.flexible())]
     
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(MockData.frameworks) {
-                framework in FrameworkTitleView(nameApp: framework.name, ImageApp: framework.imageName)
-            }
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(MockData.frameworks) {
+                        framework in FrameworkTitleView(framework: framework)
+                    }
+              }
+    
+          }
+            .navigationTitle("🍎 Frameworks")
         }
     }
     
@@ -31,20 +37,19 @@ struct MainView: View {
 
 
 struct FrameworkTitleView: View {
-    let nameApp: String
-    let ImageApp: String
+    let framework: Framework
     
     var body: some View {
         VStack {
-            Image(ImageApp)
+            Image(framework.imageName)
                 .resizable()
                 .frame(width: 90, height: 90)
-            Text(nameApp)
+            Text(framework.name)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .scaledToFit()
                 .minimumScaleFactor(0.6)
         }
-        
+        .padding()
     }
 }
