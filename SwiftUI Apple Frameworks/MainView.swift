@@ -8,62 +8,48 @@
 import SwiftUI
 
 struct MainView: View {
+   
+    let columns: [GridItem] = [GridItem(.flexible()),
+                               GridItem(.flexible()),
+                               GridItem(.flexible())]
+    
     var body: some View {
-        ZStack(alignment: .center) {
-            Color(.black)
-                .ignoresSafeArea()
-            //           VStack() {
-            //            Text("🍎 Frameworks")
-            //          .foregroundColor(.white)
-            //        .font(.system(size: 30, weight: .bold, design: .default))
-            //  }
-            
-            // HStack(spacing: 20) {
-            //   gridContentView(appImage: "app-clip", nameApp: "App Clips")
-            // gridContentView(appImage: "arkit", nameApp: "ARKit")
-            // gridContentView(appImage: "carplay", nameApp: "Car Play")
-            
-            
-            
-            
-            Grid {
-                GridRow {
-                    gridContentView(appImage: "app-clip", nameApp: "App Clips")
-                    gridContentView(appImage: "app-clip", nameApp: "App Clips")
-                    gridContentView(appImage: "app-clip", nameApp: "App Clips")
-                }
-            }
-            .padding()
-            
-           }
+        LazyVGrid(columns: columns) {
+            FrameworkTitleView(nameApp: "App-Clips", ImageApp: "app-clip")
+            FrameworkTitleView(nameApp: "App-Clips", ImageApp: "app-clip")
+            FrameworkTitleView(nameApp: "App-Clips", ImageApp: "app-clip")
+            FrameworkTitleView(nameApp: "App-Clips", ImageApp: "app-clip")
+            FrameworkTitleView(nameApp: "App-Clips", ImageApp: "app-clip")
+            FrameworkTitleView(nameApp: "App-Clips", ImageApp: "app-clip")
         }
+        
+        
     }
     
-    
-
-    
-    
-    struct gridContentView: View {
-        
-        var appImage: String
-        var nameApp: String
-        
-        var body: some View {
-            VStack {
-                Image(appImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
-                
-                Text(nameApp)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold))
-            }
-        }
-    }
-
+}
 
 
 #Preview {
- MainView()
+    MainView()
+}
+  
+
+
+struct FrameworkTitleView: View {
+    let nameApp: String
+    let ImageApp: String
+    
+    var body: some View {
+        VStack {
+            Image(ImageApp)
+                .resizable()
+                .frame(width: 90, height: 90)
+            Text(nameApp)
+                .font(.title2)
+                .fontWeight(.semibold)
+                .scaledToFit()
+                .minimumScaleFactor(0.6)
+        }
+        
+    }
 }
