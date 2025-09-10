@@ -19,15 +19,17 @@ struct MainView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(MockData.frameworks) {
                         framework in FrameworkTitleView(framework: framework)
-                    }
+                      }
+                  }
               }
-    
-          }
             .navigationTitle("🍎 Frameworks")
+
+          }
+
         }
     }
     
-}
+
 
 
 #Preview {
