@@ -16,7 +16,6 @@ struct FrameworkDetailView: View {
     
     var body: some View {
         VStack {
-            
             HStack {
                 
                 Spacer()
@@ -31,9 +30,8 @@ struct FrameworkDetailView: View {
                         .frame(width: 44, height: 44)
                 }
             }
-
             .padding()
-            
+
     Spacer()
             
             FrameworkTitleView(framework: framework)
